@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiran Krishna K R — Salesforce Certified Professional</title>
+<meta name="description" content="Portfolio of Kiran Krishna K R, Salesforce Certified Professional specializing in Sales Cloud, Service Cloud, Agentforce, and CRM consulting.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy-deep:#0a192f;
+    --navy-panel:#0f2540;
+    --navy-panel-2:#122b4a;
+    --navy-line:rgba(255,255,255,0.09);
+    --gold:#d4af6a;
+    --gold-bright:#e8c990;
+    --white:#ffffff;
+    --paper:#f6f5f1;
+    --ink:#0a192f;
+    --ink-soft:rgba(10,25,47,0.68);
+    --term-green:#7fd9a6;
+    --font-mono:'JetBrains Mono', ui-monospace, monospace;
+    --font-sans:'Inter', system-ui, sans-serif;
+    --maxw:1120px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  body{
+    margin:0;
+    font-family:var(--font-sans);
+    background:var(--paper);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  ::selection{background:var(--gold);color:var(--navy-deep);}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* Skip link */
+  .skip-link{
+    position:absolute;left:-999px;top:0;background:var(--gold);color:var(--navy-deep);
+    padding:12px 18px;z-index:999;font-family:var(--font-mono);font-weight:700;border-radius:0 0 6px 0;
+  }
+  .skip-link:focus{left:0;}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed;top:0;left:0;right:0;z-index:500;
+    background:rgba(10,25,47,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--navy-line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .nav-logo{
+    font-family:var(--font-mono);color:var(--white);font-weight:700;font-size:1.05rem;
+    letter-spacing:0.02em;display:flex;align-items:center;gap:8px;
+  }
+  .nav-logo .dot{width:8px;height:8px;border-radius:50%;background:var(--term-green);display:inline-block;}
+  nav.nav-links{display:flex;gap:32px;list-style:none;margin:0;padding:0;}
+  nav.nav-links a{
+    color:rgba(255,255,255,0.72);text-decoration:none;font-size:0.92rem;font-weight:500;
+    font-family:var(--font-mono);
+    padding:6px 2px;border-bottom:2px solid transparent;transition:color .2s ease, border-color .2s ease;
+  }
+  nav.nav-links a:hover, nav.nav-links a:focus-visible{color:var(--gold-bright);border-color:var(--gold);}
+  nav.nav-links a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;}
+
+  .hamburger{
+    display:none;background:none;border:1px solid var(--navy-line);border-radius:6px;
+    width:42px;height:42px;cursor:pointer;position:relative;
+  }
+  .hamburger span{
+    position:absolute;left:10px;right:10px;height:2px;background:var(--white);
+    transition:transform .25s ease, opacity .25s ease;
+  }
+  .hamburger span:nth-child(1){top:14px;}
+  .hamburger span:nth-child(2){top:20px;}
+  .hamburger span:nth-child(3){top:26px;}
+  .hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+
+  .mobile-panel{
+    display:none;position:fixed;top:66px;left:0;right:0;bottom:0;z-index:480;
+    background:var(--navy-deep);padding:32px 28px;
+  }
+  .mobile-panel.open{display:block;}
+  .mobile-panel a{
+    display:block;color:var(--white);font-family:var(--font-mono);font-size:1.2rem;
+    padding:16px 0;border-bottom:1px solid var(--navy-line);text-decoration:none;
+  }
+
+  @media (max-width:860px){
+    nav.nav-links{display:none;}
+    .hamburger{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  section.hero{
+    min-height:100vh;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(212,175,106,0.08), transparent 45%),
+      radial-gradient(circle at 85% 75%, rgba(127,217,166,0.06), transparent 40%),
+      var(--navy-deep);
+    display:flex;align-items:center;position:relative;
+    padding:140px 0 80px;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;
+  }
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+
+  .eyebrow-cmd{
+    font-family:var(--font-mono);color:var(--term-green);font-size:0.85rem;
+    display:flex;align-items:center;gap:8px;margin-bottom:18px;opacity:0.9;
+  }
+  .eyebrow-cmd::before{content:"$";color:var(--gold);}
+
+  h1.hero-name{
+    font-family:var(--font-mono);color:var(--white);font-weight:800;
+    font-size:clamp(2.3rem, 5.6vw, 4rem);line-height:1.05;margin:0 0 18px;letter-spacing:-0.01em;
+  }
+
+  .type-line{
+    font-family:var(--font-mono);font-size:clamp(1.1rem,2.4vw,1.5rem);color:var(--gold-bright);
+    min-height:1.8em;display:flex;align-items:center;gap:4px;margin-bottom:22px;
+  }
+  .type-line .cursor{
+    display:inline-block;width:2px;height:1.1em;background:var(--gold);animation:blink 1s steps(1) infinite;
+  }
+  @keyframes blink{50%{opacity:0;}}
+
+  .hero-tagline{
+    color:rgba(255,255,255,0.72);font-size:1.08rem;line-height:1.7;max-width:52ch;margin-bottom:36px;
+  }
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    font-family:var(--font-mono);font-weight:600;font-size:0.95rem;padding:14px 26px;border-radius:6px;
+    text-decoration:none;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:1px solid transparent;
+    transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--gold);color:var(--navy-deep);}
+  .btn-primary:hover{background:var(--gold-bright);}
+  .btn-ghost{border-color:var(--navy-line);color:var(--white);}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-bright);}
+
+  /* Terminal window */
+  .terminal{
+    background:var(--navy-panel);border:1px solid var(--navy-line);border-radius:10px;
+    overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+  }
+  .terminal-bar{
+    background:var(--navy-panel-2);padding:10px 14px;display:flex;align-items:center;gap:8px;
+    border-bottom:1px solid var(--navy-line);
+  }
+  .terminal-dot{width:11px;height:11px;border-radius:50%;}
+  .terminal-dot.r{background:#e5645a;}
+  .terminal-dot.y{background:#e5b13a;}
+  .terminal-dot.g{background:#57c568;}
+  .terminal-title{
+    font-family:var(--font-mono);color:rgba(255,255,255,0.4);font-size:0.78rem;margin-left:8px;
+  }
+  .terminal-body{padding:22px 20px;font-family:var(--font-mono);font-size:0.86rem;line-height:1.85;color:rgba(255,255,255,0.85);}
+  .terminal-body .prompt{color:var(--term-green);}
+  .terminal-body .comment{color:rgba(255,255,255,0.38);}
+  .terminal-body .val{color:var(--gold-bright);}
+  .terminal-body .key{color:#8bb4e8;}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:110px 0;position:relative;}
+  .section-navy{background:var(--navy-deep);color:var(--white);}
+  .section-eyebrow{
+    font-family:var(--font-mono);color:var(--gold);font-size:0.82rem;letter-spacing:0.04em;
+    margin-bottom:14px;display:flex;align-items:center;gap:8px;
+  }
+  .section-eyebrow::before{content:"$";opacity:0.7;}
+  h2.section-title{
+    font-family:var(--font-mono);font-weight:700;font-size:clamp(1.8rem,3.6vw,2.6rem);margin:0 0 48px;
+    letter-spacing:-0.01em;
+  }
+  .section-navy h2.section-title{color:var(--white);}
+  section:not(.section-navy) h2.section-title{color:var(--navy-deep);}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:56px;align-items:start;}
+  @media (max-width:860px){.about-grid{grid-template-columns:1fr;}}
+  .about-summary p{font-size:1.06rem;line-height:1.85;color:var(--ink-soft);}
+  .stat-row{display:flex;gap:36px;margin:32px 0;flex-wrap:wrap;}
+  .stat{font-family:var(--font-mono);}
+  .stat .num{font-size:2.4rem;font-weight:800;color:var(--navy-deep);line-height:1;}
+  .stat .label{font-size:0.82rem;color:var(--ink-soft);margin-top:6px;}
+  .personal-touch{
+    font-family:var(--font-mono);font-size:0.88rem;color:var(--ink-soft);
+    background:var(--white);border:1px solid rgba(10,25,47,0.1);border-radius:8px;padding:16px 18px;
+  }
+  .personal-touch .key{color:var(--navy-deep);font-weight:700;}
+
+  .about-card{
+    background:var(--navy-deep);border-radius:12px;padding:30px;color:var(--white);
+  }
+  .about-card .role{font-family:var(--font-mono);color:var(--gold-bright);font-weight:700;font-size:1.05rem;}
+  .about-card .org{color:rgba(255,255,255,0.6);font-size:0.9rem;margin:4px 0 20px;}
+  .about-card ul{margin:0;padding-left:18px;color:rgba(255,255,255,0.75);font-size:0.92rem;line-height:1.8;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+  @media (max-width:760px){.skills-groups{grid-template-columns:1fr;}}
+  .skill-group{
+    background:rgba(255,255,255,0.03);border:1px solid var(--navy-line);border-radius:10px;padding:26px;
+  }
+  .skill-group h3{
+    font-family:var(--font-mono);color:var(--term-green);font-size:0.95rem;margin:0 0 18px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .skill-icons{display:flex;flex-wrap:wrap;gap:10px;}
+  .chip{
+    display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);
+    border:1px solid var(--navy-line);border-radius:20px;padding:8px 14px;font-size:0.82rem;color:rgba(255,255,255,0.85);
+  }
+  .chip svg{width:15px;height:15px;stroke:var(--gold-bright);flex-shrink:0;}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative;padding-left:32px;}
+  .timeline::before{
+    content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(var(--gold), rgba(212,175,106,0.15));
+  }
+  .tl-item{position:relative;padding-bottom:52px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot{
+    position:absolute;left:-32px;top:4px;width:14px;height:14px;border-radius:50%;
+    background:var(--paper);border:3px solid var(--gold);
+  }
+  .tl-role{font-family:var(--font-mono);font-weight:700;font-size:1.15rem;color:var(--navy-deep);}
+  .tl-org{color:var(--ink-soft);font-size:0.92rem;margin:2px 0 4px;}
+  .tl-date{font-family:var(--font-mono);font-size:0.78rem;color:var(--gold);margin-bottom:14px;display:inline-block;}
+  .tl-desc{color:var(--ink-soft);line-height:1.75;margin-bottom:14px;max-width:64ch;}
+  .tl-tech{display:flex;gap:8px;flex-wrap:wrap;}
+  .tl-tech span{
+    font-family:var(--font-mono);font-size:0.74rem;background:var(--navy-deep);color:var(--gold-bright);
+    padding:5px 10px;border-radius:5px;
+  }
+
+  /* ---------- CERTIFICATIONS ---------- */
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;}
+  .cert-card{
+    background:var(--white);border:1px solid rgba(10,25,47,0.08);border-radius:10px;padding:26px;
+    position:relative;overflow:hidden;transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .cert-card:hover{transform:translateY(-4px);box-shadow:0 18px 34px -18px rgba(10,25,47,0.25);}
+  .cert-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);
+  }
+  .cert-badge{
+    font-family:var(--font-mono);font-size:0.7rem;color:var(--gold);letter-spacing:0.05em;margin-bottom:10px;
+    display:block;
+  }
+  .cert-name{font-weight:700;color:var(--navy-deep);font-size:1.02rem;line-height:1.4;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+  @media (max-width:860px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-links{display:flex;flex-direction:column;gap:14px;}
+  .contact-link{
+    display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid var(--navy-line);
+    border-radius:8px;text-decoration:none;color:var(--white);transition:border-color .2s ease, background .2s ease;
+    font-family:var(--font-mono);font-size:0.92rem;
+  }
+  .contact-link:hover, .contact-link:focus-visible{border-color:var(--gold);background:rgba(212,175,106,0.06);}
+  .contact-link svg{width:18px;height:18px;stroke:var(--gold-bright);flex-shrink:0;}
+  .contact-link .sub{color:rgba(255,255,255,0.45);font-size:0.78rem;display:block;font-family:var(--font-sans);}
+
+  form.contact-form{display:flex;flex-direction:column;gap:16px;}
+  .field label{
+    display:block;font-family:var(--font-mono);font-size:0.78rem;color:var(--gold-bright);margin-bottom:6px;
+  }
+  .field input, .field textarea{
+    width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--navy-line);border-radius:6px;
+    padding:12px 14px;color:var(--white);font-family:var(--font-sans);font-size:0.94rem;
+  }
+  .field input:focus, .field textarea:focus{outline:2px solid var(--gold);outline-offset:1px;}
+  .field textarea{resize:vertical;min-height:110px;}
+  .form-status{font-family:var(--font-mono);font-size:0.85rem;color:var(--term-green);min-height:1.4em;}
+
+  footer{
+    background:var(--navy-panel-2);color:rgba(255,255,255,0.45);padding:32px 0;text-align:center;
+    font-family:var(--font-mono);font-size:0.82rem;border-top:1px solid var(--navy-line);
+  }
+  footer .dot{color:var(--term-green);}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="Kiran Krishna K R, home"><span class="dot" aria-hidden="true"></span>Home</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#experience">experience</a>
+      <a href="#certifications">certs</a>
+      <a href="#contact">contact</a>
+    </nav>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobilePanel">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="#about">about</a>
+  <a href="#skills">skills</a>
+  <a href="#experience">experience</a>
+  <a href="#certifications">certs</a>
+  <a href="#contact">contact</a>
+</div>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="">Who Am I</div>
+        <h1 class="hero-name">Kiran Krishna K R</h1>
+        <div class="type-line"><span id="typeTarget"></span><span class="cursor" aria-hidden="true"></span></div>
+        <p class="hero-tagline">Turning business bottlenecks into scalable Salesforce solutions — automating what slows teams down and designing customer experiences that earn repeat trust.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="#experience">View experience</a>
+        </div>
+      </div>
+      <div class="terminal" role="img" aria-label="Terminal window showing a summary of Kiran's profile">
+        <div class="terminal-bar">
+          <span class="terminal-dot r"></span><span class="terminal-dot y"></span><span class="terminal-dot g"></span>
+          <span class="terminal-title"></span>
+        </div>
+        <div class="terminal-body">
+          <div><span class="prompt"></span></div>
+          <div class="comment">// 2.8+ years, Sales &amp; Service Cloud</div>
+          <div>{</div>
+          <div>&nbsp;&nbsp;<span class="key">"certifications"</span>: <span class="val">5</span>,</div>
+          <div>&nbsp;&nbsp;<span class="key">"clouds"</span>: [<span class="val">"Sales"</span>, <span class="val">"Service"</span>, <span class="val">"Experience"</span>],</div>
+          <div>&nbsp;&nbsp;<span class="key">"focus"</span>: <span class="val">"Agentforce + Automation"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="key">"status"</span>: <span class="val">"open to opportunities"</span></div>
+          <div>}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class=""></div>
+      <h2 class="section-title reveal">About</h2>
+      <div class="about-grid">
+        <div class="about-summary reveal">
+          <p>Salesforce Certified Professional with 2.8+ years designing, developing, and implementing scalable CRM solutions across Sales Cloud, Service Cloud, Experience Cloud, and AI-powered Salesforce technologies. Comfortable moving between hands-on development — Lightning Web Components, Apex, Flow Automation — and the consulting side: running discovery workshops, translating business requirements into working solutions, and presenting to CXOs and operational stakeholders.</p>
+
+          <div class="stat-row">
+            <div class="stat"><div class="num">2.8+</div><div class="label">years in Salesforce</div></div>
+            <div class="stat"><div class="num">5</div><div class="label">certifications</div></div>
+            <div class="stat"><div class="num">3</div><div class="label">languages spoken</div></div>
+          </div>
+
+          <div class="personal-touch">
+            <span class="key">Languages</span><br>
+            English (professional) · Malayalam (native) · Tamil (professional working)
+          </div>
+        </div>
+
+        <div class="about-card reveal">
+          <div class="role">CRM Consultant</div>
+          <div class="org">Conclo Technologies Pvt Ltd · Sept 2024 – Present</div>
+          <ul>
+            <li>Runs discovery workshops and CRM consulting sessions</li>
+            <li>Builds POC configurations with Flow Builder and custom objects</li>
+            <li>Presents Salesforce demos to business owners and CXOs</li>
+            <li>Bridges business requirements and developer implementation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section-navy" id="skills">
+    <div class="wrap">
+      <div class=""></div>
+      <h2 class="section-title reveal">Skills</h2>
+      <div class="skills-groups">
+
+        <div class="skill-group reveal">
+          <h3>&gt; Salesforce-Platforms</h3>
+          <div class="skill-icons">
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>Sales Cloud</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v16H4z"/></svg>Service Cloud</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 12h18M12 3v18"/></svg>Experience Cloud</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l9 5-9 5-9-5 9-5z"/></svg>Agentforce</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Prompt Builder</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0116 0v2"/></svg>Einstein Bots</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h6v6H4zM14 14h6v6h-6z"/></svg>Omni-Channel Routing</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3>&gt; Development</h3>
+          <div class="skill-icons">
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M8 4l-6 8 6 8M16 4l6 8-6 8"/></svg>Lightning Web Components</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 3h18v18H3z"/></svg>Apex Classes &amp; Triggers</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Visualforce Pages</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>SOQL / SOSL</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3>&gt; Administration</h3>
+          <div class="skill-icons">
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>Flow Builder</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Validation Rules</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Approval Processes</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/></svg>Reports &amp; Dashboards</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0114 0v2"/></svg>Profiles &amp; Permission Sets</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3v18M3 12h18"/></svg>Sharing Rules</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12a8 3 0 0016 0V6"/></svg>Data Management</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 8l9-5 9 5-9 5-9-5zM3 8v8l9 5 9-5V8"/></svg>Web-to-Lead / Email-to-Case</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3>&gt; Tools &amp; Collaboration</h3>
+          <div class="skill-icons">
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 17l6-6-6-6M12 19h8"/></svg>VS Code</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 8v8M8 6h4a4 4 0 014 4"/></svg>Git &amp; GitHub</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v16H4zM8 9h8M8 13h5"/></svg>Postman</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 17l6-14 6 14M8 12h4"/></svg>Salesforce CLI</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="9" cy="7" r="3"/><path d="M2 21v-1a7 7 0 0114 0v1M16 3.5a3 3 0 010 6"/></svg>CRM Consulting</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg>Requirement Gathering</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class=""></div>
+      <h2 class="section-title reveal">Experience</h2>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-role">Python Full Stack Intern</div>
+          <div class="tl-org">Luminar Technolab, Kochi</div>
+          <div class="tl-date">Jan 2023 – Jun 2023</div>
+          <p class="tl-desc">Built responsive full-stack applications and e-commerce features with CRUD functionality, optimizing performance across frontend and backend.</p>
+          <div class="tl-tech"><span>Python</span><span>Django</span><span>JavaScript</span><span>Bootstrap</span></div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-role">Salesforce Administrator</div>
+          <div class="tl-org">Conclo Technologies Pvt Ltd, Palakkad</div>
+          <div class="tl-date">Oct 2023 – Jan 2024</div>
+          <p class="tl-desc">Configured Sales and Service Cloud to business requirements, managed users, roles, and security, and built reports and dashboards surfacing sales and service KPIs.</p>
+          <div class="tl-tech"><span>Flow Builder</span><span>Validation Rules</span><span>Reports &amp; Dashboards</span><span>Web-to-Lead</span></div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-role">Salesforce Developer</div>
+          <div class="tl-org">Conclo Technologies Pvt Ltd, Palakkad</div>
+          <div class="tl-date">Jan 2024 – Sept 2024</div>
+          <p class="tl-desc">Designed and deployed LWC, Apex, and Visualforce solutions. Automated lead management and approvals with Record-Triggered Flows, cutting manual effort by roughly 60%. Built Agentforce and Einstein Bot workflows, REST integrations, and maintained &gt;85% Apex test coverage.</p>
+          <div class="tl-tech"><span>LWC</span><span>Apex</span><span>Agentforce</span><span>Einstein Bots</span><span>REST APIs</span></div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-role">Account Executive</div>
+          <div class="tl-org">Conclo Technologies Pvt Ltd, Palakkad</div>
+          <div class="tl-date">Sept 2024 – Present</div>
+          <p class="tl-desc">Leads discovery workshops and CRM consulting engagements, builds POC configurations, and presents Salesforce solutions to business owners and CXOs.</p>
+          <div class="tl-tech"><span>CRM Consulting</span><span>Solution Design</span><span>Stakeholder Presentations</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="section-navy" id="certifications">
+    <div class="wrap">
+      <div class=""></div>
+      <h2 class="section-title reveal">Certifications</h2>
+      <div class="cert-grid">
+        <div class="cert-card reveal"><span class="cert-badge">CERTIFIED</span><div class="cert-name">Salesforce Certified Platform Developer II</div></div>
+        <div class="cert-card reveal"><span class="cert-badge">CERTIFIED</span><div class="cert-name">Salesforce Certified Platform Developer I</div></div>
+        <div class="cert-card reveal"><span class="cert-badge">CERTIFIED</span><div class="cert-name">Salesforce Certified Agentforce Specialist</div></div>
+        <div class="cert-card reveal"><span class="cert-badge">CERTIFIED</span><div class="cert-name">Salesforce Certified AI Associate</div></div>
+        <div class="cert-card reveal"><span class="cert-badge">CERTIFIED</span><div class="cert-name">Copado AI Certified Professional</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class=""></div>
+      <h2 class="section-title reveal">Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-links reveal" style="background:var(--navy-deep);padding:32px;border-radius:12px;">
+          <a class="contact-link" href="mailto:kirankrishnakr7@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v16H4zM4 6l8 7 8-7"/></svg>
+            <span>kirankrishnakr7@gmail.com<span class="sub">Email</span></span>
+          </a>
+          <a class="contact-link" href="https://www.linkedin.com/in/kirankr-/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-3a2 2 0 014 0v3M12 13v3"/></svg>
+            <span>linkedin.com/in/kirankr-<span class="sub">LinkedIn</span></span>
+          </a>
+          <a class="contact-link" href="https://www.salesforce.com/trailblazer/kirankrishnakr" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.5 1 6L12 16l-5.5 3.5 1-6L3 9l6-1 3-6z"/></svg>
+            <span>Trailblazer Profile<span class="sub">Trailhead</span></span>
+          </a>
+          <a class="contact-link" href="https://github.com/kirankrishnakr7-sys" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 2a15 15 0 000 20M12 2a15 15 0 010 20M3 12h18"/></svg>
+            <span>github.com/kirankrishnakr7-sys<span class="sub">GitHub</span></span>
+          </a>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm" style="background:var(--navy-deep);padding:32px;border-radius:12px;" novalidate>
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send message</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap"><span class="dot">●</span> Kiran Krishna K R — © <span id="year"></span></div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* Mobile nav */
+  var hamburgerBtn = document.getElementById("hamburgerBtn");
+  var mobilePanel = document.getElementById("mobilePanel");
+  function closeMenu(){
+    mobilePanel.classList.remove("open");
+    hamburgerBtn.classList.remove("open");
+    hamburgerBtn.setAttribute("aria-expanded","false");
+  }
+  hamburgerBtn.addEventListener("click", function(){
+    var isOpen = mobilePanel.classList.toggle("open");
+    hamburgerBtn.classList.toggle("open", isOpen);
+    hamburgerBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+  mobilePanel.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", closeMenu);
+  });
+
+  /* Typing effect */
+  var phrases = ["Salesforce Certified Professional", "CRM Consultant", "Trailblazer"];
+  var typeTarget = document.getElementById("typeTarget");
+  if (reduceMotion){
+    typeTarget.textContent = phrases[0];
+  } else {
+    var pIndex = 0, cIndex = 0, deleting = false;
+    function tick(){
+      var current = phrases[pIndex];
+      if (!deleting){
+        cIndex++;
+        typeTarget.textContent = current.slice(0, cIndex);
+        if (cIndex === current.length){
+          deleting = true;
+          setTimeout(tick, 1400);
+          return;
+        }
+      } else {
+        cIndex--;
+        typeTarget.textContent = current.slice(0, cIndex);
+        if (cIndex === 0){
+          deleting = false;
+          pIndex = (pIndex + 1) % phrases.length;
+        }
+      }
+      setTimeout(tick, deleting ? 35 : 65);
+    }
+    tick();
+  }
+
+  /* Scroll reveal */
+  var revealEls = document.querySelectorAll(".reveal");
+  if (reduceMotion || !("IntersectionObserver" in window)){
+    revealEls.forEach(function(el){ el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
+    revealEls.forEach(function(el){ io.observe(el); });
+  }
+
+  /* Subtle parallax on hero terminal */
+  var terminalEl = document.querySelector(".terminal");
+  if (!reduceMotion && terminalEl){
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY;
+      if (y < window.innerHeight){
+        terminalEl.style.transform = "translateY(" + (y * 0.06) + "px)";
+      }
+    }, { passive: true });
+  }
+
+  /* Contact form (static hosting — no backend) */
+  var form = document.getElementById("contactForm");
+  var status = document.getElementById("formStatus");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var name = document.getElementById("cf-name").value.trim();
+    var email = document.getElementById("cf-email").value.trim();
+    var message = document.getElementById("cf-message").value.trim();
+    if (!name || !email || !message){
+      status.style.color = "#e5645a";
+      status.textContent = "> error: all fields are required";
+      return;
+    }
+    var subject = encodeURIComponent("Portfolio contact from " + name);
+    var body = encodeURIComponent(message + "\n\nFrom: " + name + " (" + email + ")");
+    window.location.href = "mailto:kirankrishnakr7@gmail.com?subject=" + subject + "&body=" + body;
+    status.style.color = "";
+    status.textContent = "> opening mail client...";
+    form.reset();
+  });
+})();
+</script>
+
+</body>
+</html>
