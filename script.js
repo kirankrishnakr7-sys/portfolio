@@ -5,6 +5,43 @@
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  /* Vanta Birds — hero background, tinted to the portfolio's cyan/gold palette */
+  (function initVantaBirds(){
+    var el = document.getElementById("vanta-birds-bg");
+    if (!el || typeof VANTA === "undefined" || !VANTA.BIRDS) return;
+    if (reduceMotion) return; // respect prefers-reduced-motion, keep the plain hero background
+
+    var effect = VANTA.BIRDS({
+      el: el,
+      THREE: window.THREE,
+      mouseControls: !coarsePointer,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+
+      backgroundColor: 0x05070f,   // --navy-deep
+      backgroundAlpha: 0,          // transparent so the hero's own gradient shows through
+      color1: 0x00f2fe,            // --accent (cyan)
+      color2: 0xeeb462,            // --gold-bright
+      colorMode: "lerpGradient",   // smooth cyan -> gold gradient across the flock, like the hero-name text
+
+      quantity: 2.5,
+      birdSize: 1,
+      wingSpan: 26,
+      speedLimit: 4,
+      separation: 60,
+      alignment: 25,
+      cohesion: 25
+    });
+
+    window.addEventListener("beforeunload", function(){
+      if (effect && effect.destroy) effect.destroy();
+    });
+  })();
+
   /* Mobile nav */
   var hamburgerBtn = document.getElementById("hamburgerBtn");
   var mobilePanel = document.getElementById("mobilePanel");
