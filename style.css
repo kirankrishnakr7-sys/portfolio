@@ -90,12 +90,24 @@
 
   /* ---------- HERO ---------- */
   section.hero{
+    position:relative;
+    overflow:hidden;
     min-height:100vh;
     background:
       radial-gradient(circle at 10% 20%, rgba(0,242,254,0.09), transparent 40%),
       radial-gradient(circle at 90% 80%, rgba(226,135,67,0.07), transparent 45%),
       var(--paper);
     display:flex;align-items:center;padding:140px 0 80px;
+  }
+  .vanta-birds-bg{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+  }
+  section.hero .wrap.hero-grid{
+    position:relative;
+    z-index:2;
   }
   .hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;}
   @media (max-width:990px){.hero-grid{grid-template-columns:1fr;gap:48px;}}
